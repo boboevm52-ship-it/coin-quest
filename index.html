@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coin Quest</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+body{margin:0;background:#0b1220;color:#fff;font-family:sans-serif;text-align:center;padding:40px}
+h1{color:#ffcc00}
+.coin{font-size:100px;cursor:pointer}
+.coin:active{transform:scale(0.9)}
+.score{font-size:36px;margin:20px;color:#ffcc00;font-weight:bold}
+.btn{background:#ffcc00;color:#000;border:0;padding:15px 30px;border-radius:12px;font-weight:bold;margin-top:20px}
+</style>
+</head>
+<body>
+<h1>🪙 Coin Quest</h1>
+<div class="score" id="s">0 🪙</div>
+<div class="coin" onclick="tap()">🪙</div>
+<p>Тангаро пахш кун!</p>
+<button class="btn" onclick="Telegram.WebApp.close()">Пӯшидан</button>
+<script>
+let c=localStorage.getItem('c')||0;
+document.getElementById('s').innerText=c+' 🪙';
+function tap(){c++;localStorage.setItem('c',c);document.getElementById('s').innerText=c+' 🪙';}
+Telegram.WebApp.ready();Telegram.WebApp.expand();
+</script>
+</body>
+</html>
